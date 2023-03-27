@@ -11,6 +11,9 @@ class TestHotel(object):
         service = Service(executable_path=ChromeDriverManager().install())
         options = Options()
         options.add_experimental_option("detach", True)
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
         self.browser = webdriver.Chrome(service=service, options=options)
         URL = "http://hotel-v2.progmasters.hu/"
         self.browser.get(URL)
